@@ -12,8 +12,8 @@ cd /tmp
 go install github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@latest
 
 # init
-$ mkdir prom-grafana && cd prom-grafana # create a new folder for the project and change to it
-$ tk init # initiate a new project
+mkdir prom-grafana && cd prom-grafana # create a new folder for the project and change to it
+tk init # initiate a new project
 
 # rewrite the previous .yaml to very basic .jsonnet:
 
@@ -23,8 +23,8 @@ environments/default/main.jsonnet:
 
 ```
 # commands
-tk show
-tk eval
+tk show environments/default/main.jsonnet
+tk eval environments/default/main.jsonnet
 
 # notes
 Each environment has a file called spec.json, which includes the information to select a cluster:
@@ -56,3 +56,9 @@ Each environment has a file called spec.json, which includes the information to 
   }
 }
 ```
+
+# commands
+tk diff environments/default/main.jsonnet
+tk apply environments/default/main.jsonnet 
+
+tk delete environments/default/main.jsonnet
