@@ -1,0 +1,11 @@
+{
+  "apiVersion": "tanka.dev/v1alpha1",
+  "kind": "Environment",
+  "metadata": {
+    "name": "production"
+  },
+  "spec": {
+    "apiServer": "https://192.168.64.160:8443", 
+    "namespace": "production" 
+  }
+}

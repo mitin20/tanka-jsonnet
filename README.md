@@ -62,3 +62,13 @@ tk diff environments/default/main.jsonnet
 tk apply environments/default/main.jsonnet 
 
 tk delete environments/default/main.jsonnet
+
+# demo
+mkdir demo
+cd demo
+tk init
+tk show environments/production/main.jsonnet
+tk diff environments/production/main.jsonnet
+tk apply environments/production/main.jsonnet 
+
+tk delete environments/production/main.jsonnet
