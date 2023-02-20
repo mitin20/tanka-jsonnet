@@ -20,56 +20,7 @@ $ tk init # initiate a new project
 environments/default/main.jsonnet:
 
 ```jsonnet
-          },
-        },
-        template: {
-          metadata: {
-            labels: {
-              name: 'prometheus',
-            },
-          },
-          spec: {
-            containers: [
-              {
-                image: 'prom/prometheus',
-                imagePullPolicy: 'IfNotPresent',
-                name: 'prometheus',
-                ports: [
-                  {
-                    containerPort: 9090,
-                    name: 'api',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-      },
-    },
-    service: {
-      apiVersion: 'v1',
-      kind: 'Service',
-      metadata: {
-        labels: {
-          name: 'prometheus',
-        },
-        name: 'prometheus',
-      },
-      spec: {
-        ports: [
-          {
-            name: 'prometheus-api',
-            port: 9090,
-            targetPort: 9090,
-          },
-        ],
-        selector: {
-          name: 'prometheus',
-        },
-      },
-    },
-  },
-}
+
 ```
 # commands
 tk show
@@ -92,8 +43,9 @@ Each environment has a file called spec.json, which includes the information to 
   }
 }
 ```
-# Note: Tanka won't create the namespace for you -- you need to include it in Jsonnet by adding it to environments/default/main.jsonnet:
-main.jsonnet
+
+# Tanka won't create the namespace for you -- you need to include it in Jsonnet by adding it to environments/default/main.jsonnet:
+```main.jsonnet
 {
   my_namespace: {
     apiVersion: "v1",
